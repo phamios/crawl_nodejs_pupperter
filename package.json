@@ -7,10 +7,11 @@
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "puppeteer": "^16.0.0"
+    "mysql": "^2.18.1",
+    "puppeteer": "^16.0.0",
+    "url-exist": "^3.0.1"
   }
 }

@@ -1,15 +1,26 @@
-const pageScraper = require("./pageScraper");
-async function scrapeAll(browserInstance) {
-  let browser;
+const maclife = require("./pageScraper");
+const wikifx = require("./wikifx/wikifxScraper");
+
+async function scrapeAll(browserInstance,whichwebsite) {
+  let browser; 
   try {
     browser = await browserInstance;
-    await pageScraper.scraper(browser);
+    switch (whichwebsite) {
+      case 'maclife':
+        await maclife.scraper(browser);
+      case 'wikifx':
+        await wikifx.scraper(browser);
+      default:
+        console.log(`Sorry, we are out of ${expr}.`);
+    }
+    
   } catch (err) {
     console.log("Could not resolve the browser instance => ", err);
   }
 }
 
-module.exports = (browserInstance) => scrapeAll(browserInstance);
+module.exports = (browserInstance,whichwebsite) => scrapeAll(browserInstance,whichwebsite);
+
 // const pageScraper = require('./pageScraper');
 // async function scrapeAll(browserInstance){
 //     let browser;
